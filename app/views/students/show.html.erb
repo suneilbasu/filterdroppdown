@@ -1,0 +1,7 @@
+<h1>Students#show</h1>
+<p>Find me in app/views/students/show.html.erb</p>
+<%= @student.first_name %>
+<%=form_for @student do |v| %>
+  <%= v.select(:tutor_id, [[1],[2],[3]])%>
+  <%= v.submit "change" %>
+<% end %>
