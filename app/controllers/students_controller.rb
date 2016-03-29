@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   def index
-    if params[:search]
-      @students = Student.search(params[:search])
+    if params[:student][:tutor_id]
+      @students = Student.search(params[:student][:tutor_id])
     else
       @students = Student.all
     end
@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
   def update
     @student= Student.find(params[:id])
     if @student.update(student_params)
-      redirect_to :action => 'index'
+      redirect_to action: "index"
     end
   end
   def student_params

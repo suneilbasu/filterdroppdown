@@ -2,7 +2,7 @@
 <p>Find me in app/views/students/index.html.erb</p>
 
 <%= form_tag students_path, :method => 'get' do %>
-  <%= collection_select :search, :tutor_id, Tutor.all, :id, :name, prompt: true %>
+  <%= collection_select :student, :tutor_id, Tutor.all, :id, :name, prompt: true %>
   <%= submit_tag "search" %>
 <% end %>
 
@@ -15,8 +15,3 @@
  <% end %>
 
 <%= params.inspect %>
-
-<%= form_tag(students_path, :method=> "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Students" %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
